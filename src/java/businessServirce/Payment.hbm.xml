@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Mar 2016 10:17:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="businessServirce.Payment" table="payment" catalog="librarydb" optimistic-lock="version">
+        <composite-id name="id" class="businessServirce.PaymentId">
+            <key-property name="invoiceN0" type="string">
+                <column name="invoiceN0" length="10" />
+            </key-property>
+            <key-property name="membersMemberId" type="int">
+                <column name="members_memberID" />
+            </key-property>
+            <key-property name="usersUserId" type="int">
+                <column name="users_userID" />
+            </key-property>
+        </composite-id>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

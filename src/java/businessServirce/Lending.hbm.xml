@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Mar 2016 10:17:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="businessServirce.Lending" table="lending" catalog="librarydb" optimistic-lock="version">
+        <composite-id name="id" class="businessServirce.LendingId">
+            <key-property name="lendingId" type="int">
+                <column name="lendingID" />
+            </key-property>
+            <key-property name="membersMemberId" type="int">
+                <column name="members_memberID" />
+            </key-property>
+        </composite-id>
+        <property name="userId" type="int">
+            <column name="userID" not-null="true" />
+        </property>
+        <property name="bookingId" type="int">
+            <column name="bookingID" not-null="true" />
+        </property>
+        <property name="bookingDate" type="date">
+            <column name="booking_Date" length="10" not-null="true" />
+        </property>
+        <property name="returnDate" type="date">
+            <column name="return_Date" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Mar 2016 10:17:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="businessServirce.Booking" table="booking" catalog="librarydb" optimistic-lock="version">
+        <composite-id name="id" class="businessServirce.BookingId">
+            <key-property name="bookingId" type="int">
+                <column name="bookingID" />
+            </key-property>
+            <key-property name="usersUserId" type="int">
+                <column name="users_userID" />
+            </key-property>
+            <key-property name="membersMemberId" type="int">
+                <column name="members_memberID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="members" class="businessServirce.Members" update="false" insert="false" fetch="select">
+            <column name="members_memberID" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="users" class="businessServirce.Users" update="false" insert="false" fetch="select">
+            <column name="users_userID" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="isbn" type="string">
+            <column name="ISBN" length="45" not-null="true" />
+        </property>
+        <property name="author" type="string">
+            <column name="author" length="30" not-null="true" />
+        </property>
+        <property name="publishedYear" type="date">
+            <column name="published_year" length="4" not-null="true" />
+        </property>
+        <property name="section" type="string">
+            <column name="section" length="25" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>
