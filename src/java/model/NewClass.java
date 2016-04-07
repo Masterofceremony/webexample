@@ -34,8 +34,8 @@ public class NewClass {
     pa.setUsersUserId(usersUserId);
     session.save(pa);
     trans.commit();
-    //Query query= session.createQuery("from users where userID='"+ userID + "'");
-    //query= select * from users where userID=221;
+    Query query= session.createQuery("from users where userID='"+ invoiceNo + "'");
+    query= "select * from users where userID=221";
     
     System.out.println("users"+ "\n"+ pa.getMembersMemberId()+ "\n"+"added");
     
